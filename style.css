@@ -1,0 +1,42 @@
+body{
+    align-content: center;
+    width:400;
+    margin:20px;
+    font-family: monospace;
+}
+
+h1{
+    text-transform: uppercase;
+} 
+
+p{
+    font-size: 20px;
+}
+
+.vis{
+    background-color:#fff;
+}
+
+.viz-manual{
+    border: 2px dashed black;
+    width:200px;
+    height:200px;
+}
+
+.viz-d3{
+    border: 2px dashed black;
+    width:400px;
+    height:400px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.box{
+    height: 30px;
+    width: 30px;
+    margin-top: 2px;
+    background-color: #000;
+    color: #fff
+    
+}
