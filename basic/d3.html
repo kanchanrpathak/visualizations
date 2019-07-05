@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script src="d3.js"></script>
+    </head>
+    <body>
+        <main>
+            
+
+                <h1>Iris Visualization 1</h1>
+                <h2>d3 Viz</h2>
+                <p>coming soon!</p>
+
+                <div class="viz-manual">
+                        <div class="box">10</div>
+                        <div class="box">20</div>
+                        <div class="box">30</div>
+                        <div class="box">40</div>
+                        <div class="box">50</div>
+                </div>
+
+                <div class="viz-d3">
+                        <!--<div class="box1"></div>
+                        <div class="box1"></div>
+                        <div class="box1"></div>
+                        <div class="box1"></div>
+                        <div class="box1"></div>-->
+                </div>
+                
+
+        
+        </main>
+
+        <!--<script>
+            var val = [10,20,30,40,50]
+            var boxes = document.getElementsByClassName("box1");
+            for(var i=0; i<boxes.length; i++){
+                var box = boxes.item(i);
+                box.innerHTML=val[i];
+                box.style.setProperty("background-color","black",null);
+                box.style.setProperty("color","white",null);
+                box.style.setProperty("width","20px",null);
+                box.style.setProperty("height","20px",null);
+                box.style.setProperty("padding","5px",null);
+                box.style.setProperty("margin","2px",null);
+            }
+        </script>-->
+
+        <script>
+            var val = [10,20,30,40,50]
+
+            var data = [
+                { "sepalWidth":50, "sepalLength":10, "species":"setosa"},
+                { "sepalWidth":40, "sepalLength":15, "species":"setosa"},
+                { "sepalWidth":30, "sepalLength":12, "species":"versicolor"},
+                { "sepalWidth":20, "sepalLength":10, "species":"versicolor"},
+                { "sepalWidth":15, "sepalLength":25, "species":"versicolor"}
+            ]
+
+            async function vis(){
+
+            irisFull = await d3.csv("iris.csv",d3.autotype)
+
+            d3.select(".viz-d3")
+              .selectAll("div")
+              .data(irisFull)
+              .enter()
+              .append("div")
+              .text(d => d["sepalWidth"])
+              .style("color","white")
+              .style("background-color",function(d){
+                  if(d["Species"] === "Iris-setosa"){
+                      return "green";
+                  }
+                  else if(d["Species"] === "Iris-versicolor"){
+                      return "red";
+                  }
+                  else return "blue";
+              })
+              .style("height",d => d.SepalLengthCm * 2+"px")
+              .style("width", d => d["SepalWidthCm"] * 2+"px")
+              .style("padding","5px")
+              .style("margin","2px")
+
+            }
+            
+            vis();
+        </script>
+
+        <footer>
+            <small>By Kanchan</small>
+        </footer>
+
+        
+    </body>
